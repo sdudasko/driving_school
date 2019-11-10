@@ -1,11 +1,14 @@
 import java.util.Scanner;
+import java.util.UUID;
 
 public class UserInput {
-    public static void cta() {
+    public static UUID cta() {
         System.out.println("Insert ID of your car to get information about its state.");
 
         Scanner $scanner = new Scanner(System.in);
         String $id = $scanner.next();
-        System.out.println($id);
+        UUID $uuid = UUID.fromString($id);
+
+        return $uuid;
     }
 }

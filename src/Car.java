@@ -3,33 +3,47 @@ import java.util.List;
 import java.util.UUID;
 
 public class Car {
-    private UUID id;
+    private UUID uuid;
+
     private String name;
+    private int price;
     public List<Car> instances = new ArrayList<Car>();
 
     public Car() {
 
     }
 
-    public Car store(String name) {
-        UUID $id;
-        $id = UUID.randomUUID();
-        instances.add(this);
+    public Car store(String name, int price) {
+        Car $car = new Car();
 
-        this.id = $id;
-        this.name = name;
+        UUID $uuid;
+        $uuid = UUID.randomUUID();
 
-        return this.show($id);
+        $car.uuid = $uuid;
+        $car.name = name;
+        $car.price = price;
+
+        instances.add($car);
+        System.out.println($car.uuid);
+
+        return this.show($uuid);
     }
 
     public Car show(UUID $id) {
-
+        // TODO - ceknut, ci dostavame na vstup uuidcko
         int i = 0;
         for (Car $car : instances) {
-            System.out.println($car.name);
+            if ($car.uuid.equals($id)) {
+                return $car;
+            }
             i++;
         }
+        // TODO - Break program if car not found
 
-        return this;
+        return null;
+    }
+
+    public void getInformation(Car $car) {
+        System.out.println("Name: " + $car.name);
     }
 }
