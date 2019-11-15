@@ -30,20 +30,6 @@ public class Car {
         return uuid;
     }
 
-    public Car show(UUID id) {
-        // TODO - ceknut, ci dostavame na vstup uuidcko
-        int i = 0;
-        for (Car car : instances) {
-            if (car.uuid.equals(id)) {
-                return car;
-            }
-            i++;
-        }
-        // TODO - Break program if car not found
-
-        return null;
-    }
-
     public void getInformation(Car car) {
         System.out.println("Name: " + car.name);
     }

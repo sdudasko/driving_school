@@ -2,6 +2,7 @@ package common;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class CarStack {
 
@@ -20,10 +21,21 @@ public class CarStack {
     }
 
     public void add(Car car) {
+        System.out.println(car.uuid);
         instances.add(car);
     }
 
     public List<Car> getCars() {
         return this.instances;
+    }
+
+    public void getInformation(UUID uuid) {
+        int i = 0;
+        for (Car car : instances) {
+            if (car.uuid.equals(uuid)) {
+                System.out.println("Name: " + car.name);
+            }
+            i++;
+        }
     }
 }

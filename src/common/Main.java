@@ -14,11 +14,9 @@ public class Main {
         CarStack storeHandler = CarStack.getInstance();
 
         List<Car> cars = CarStack.getInstance().getCars();
-        System.out.println(cars.get(3).name);
 
         UUID uuid = UserInput.cta();
 
-        Car car = new Car().show(uuid);
-//        car.getInformation(car);
+        storeHandler.getInformation(uuid);
     }
 }
