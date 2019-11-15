@@ -1,29 +1,24 @@
 package common;
 
+import seeds.Seeder;
+
+import java.util.List;
 import java.util.UUID;
 
 public class Main {
 
     public static void main(String[] args) {
-
+        new Seeder().seed();
         Repair storeRepairHandler = new Repair();
 
-        Car storeHandler = new Car();
+        CarStack storeHandler = CarStack.getInstance();
 
-        // TODO - to 2d array and set props in loop
-
-        Car car = storeHandler.store("Mazda", 10000);
-        storeRepairHandler.store(car);
-
-        storeHandler.store("Opel", 12500);
-        storeHandler.store("Skoda", 800);
-        storeHandler.store("Petovo auto", 800);
-        storeHandler.store("Renault", 4500);
+        List<Car> cars = CarStack.getInstance().getCars();
+        System.out.println(cars.get(3).name);
 
         UUID uuid = UserInput.cta();
 
-        Car newCar = storeHandler.show(uuid);
-
-        storeHandler.getInformation(newCar);
+        Car car = new Car().show(uuid);
+//        car.getInformation(car);
     }
 }

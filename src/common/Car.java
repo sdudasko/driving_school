@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class Car extends CarStack {
-    private UUID uuid;
+public class Car {
+    public UUID uuid;
+    public String name;
 
-    private String name;
     private int price;
     public List<Car> instances = new ArrayList<Car>();
 
@@ -15,7 +15,7 @@ public class Car extends CarStack {
 
     }
 
-    public Car store(String name, int price) {
+    public static UUID store(String name, int price) {
         Car car = new Car();
 
         UUID uuid;
@@ -25,10 +25,9 @@ public class Car extends CarStack {
         car.name = name;
         car.price = price;
 
-        instances.add(car);
-        System.out.println(car.uuid);
+        CarStack.getInstance().add(car);
 
-        return show(uuid);
+        return uuid;
     }
 
     public Car show(UUID id) {
@@ -47,5 +46,10 @@ public class Car extends CarStack {
 
     public void getInformation(Car car) {
         System.out.println("Name: " + car.name);
+    }
+
+    public String toString(Car car) {
+        return "ads";
+//        return "Name: " + car.name;
     }
 }
