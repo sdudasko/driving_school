@@ -3,12 +3,13 @@ package common;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import stacks.CarStack;
 
 public class Car {
     public UUID uuid;
     public String name;
-
     private int price;
+
     public List<Car> instances = new ArrayList<Car>();
 
     public Car() {
@@ -28,14 +29,5 @@ public class Car {
         CarStack.getInstance().add(car);
 
         return uuid;
-    }
-
-    public void getInformation(Car car) {
-        System.out.println("Name: " + car.name);
-    }
-
-    public String toString(Car car) {
-        return "ads";
-//        return "Name: " + car.name;
     }
 }

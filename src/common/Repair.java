@@ -1,8 +1,9 @@
 package common;
 
+import stacks.EmployeeStack;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class Repair {
 
@@ -10,20 +11,21 @@ public class Repair {
 
     private Car car; // Composition - If repair is destroyed - then the car within the repair is destroyed
     private List <Employee> employees; // Composition - If repair is destroyed - then the employees within the repair is destroyed
-    private UUID uuid;
+//    private UUID uuid;
 
-    public Repair() {
+    public Repair(Car car, Employee employee) {
 
     }
 
-    public void store(Car car) {
-        Repair repair = new Repair();
-        UUID uuid;
-        uuid = UUID.randomUUID();
+    public Repair store(Car car) {
+//        UUID uuid; // So far we do not need to keep repairs
+//        uuid = UUID.randomUUID();
+//        this.uuid = uuid;
 
-        repair.uuid = uuid;
-        repair.car = car;
+        this.car = car;
+        this.employees = EmployeeStack.getInstance().getEmployees();
 
-        instances.add(repair);
+        return this;
+//        instances.add(this);
     }
 }

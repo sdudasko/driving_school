@@ -1,12 +1,21 @@
 package common;
 
+import stacks.EmployeeStack;
+
+import java.util.UUID;
+
 public class Person {
-    private int age;
-    private String first_name;
-    private String last_name;
-    private String telephone_number;
+    protected int age;
+    protected String first_name;
+    protected String last_name;
+    protected String telephone_number;
+    protected UUID uuid;
 
 //    Person() {}
+
+    public String getFirstName() {
+        return this.first_name;
+    }
 
     public Person(int age, String first_name, String last_name, String telephone_number) {
         this.age = age;
@@ -25,5 +34,18 @@ public class Person {
 
     public String getFullName() {
         return this.first_name + " " + this.last_name;
+    }
+
+    public static UUID store(int age, String first_name, String last_name, String telephone_number) {
+        Person person = new Person(age, first_name, last_name, telephone_number);
+
+        UUID uuid;
+        uuid = UUID.randomUUID();
+
+        person.uuid = uuid;
+        person.first_name = first_name;
+        person.last_name = last_name;
+
+        return uuid;
     }
 }

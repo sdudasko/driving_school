@@ -1,4 +1,6 @@
-package common;
+package stacks;
+
+import common.Car;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,6 @@ public class CarStack {
     }
 
     public void add(Car car) {
-        System.out.println(car.uuid);
         instances.add(car);
     }
 

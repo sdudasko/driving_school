@@ -1,22 +1,28 @@
 package common;
 
+import stacks.CarStack;
 import seeds.Seeder;
+import stacks.EmployeeStack;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class Main {
 
     public static void main(String[] args) {
         new Seeder().seed();
-        Repair storeRepairHandler = new Repair();
 
         CarStack storeHandler = CarStack.getInstance();
 
         List<Car> cars = CarStack.getInstance().getCars();
 
-        UUID uuid = UserInput.cta();
+        List<Employee> employees = new ArrayList<Employee>();
+        employees = EmployeeStack.getInstance().getEmployees();
+        System.out.println(employees.get(1));
+//        Repair storeRepairHandler = new Repair(cars.get(1), PersonStack.getInstance().getEmployees().get(1));
 
-        storeHandler.getInformation(uuid);
+//        UUID uuid = UserInput.cta();
+//
+//        storeHandler.getInformation(uuid);
     }
 }
