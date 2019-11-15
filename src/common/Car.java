@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class Car {
+public class Car extends CarStack {
     private UUID uuid;
 
     private String name;

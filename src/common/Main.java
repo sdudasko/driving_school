@@ -17,6 +17,7 @@ public class Main {
 
         storeHandler.store("Opel", 12500);
         storeHandler.store("Skoda", 800);
+        storeHandler.store("Petovo auto", 800);
         storeHandler.store("Renault", 4500);
 
         UUID uuid = UserInput.cta();
