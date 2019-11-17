@@ -7,25 +7,43 @@ import java.util.List;
 
 public class Repair {
 
-    public List <Repair> instances = new ArrayList<Repair>();
+    public List<Repair> instances = new ArrayList<Repair>();
 
     private Car car; // Composition - If repair is destroyed - then the car within the repair is destroyed
-    private List <Employee> employees; // Composition - If repair is destroyed - then the employees within the repair is destroyed
+    // We take employees as a param so we don't have to filter through all employees all over again // TODO - refactor
+    private List<Employee> free_employees; // Composition - If repair is destroyed - then the employees within the repair is destroyed
+    private List<Employee> assigned_employees = new ArrayList<Employee>();
 //    private UUID uuid;
 
-    public Repair(Car car, Employee employee) {
+    public Repair(Car car, List<Employee> free_employees) {
+        this.car = car;
+        this.free_employees = free_employees;
 
+        this.assignEmployees();
     }
 
-    public Repair store(Car car) {
-//        UUID uuid; // So far we do not need to keep repairs
-//        uuid = UUID.randomUUID();
-//        this.uuid = uuid;
+    private void assignEmployees() {
+        List<Employee> assigned_employees = new ArrayList<Employee>();
+        // TODO - now cars only have 1 broken part
+        for (Employee employee : free_employees) {
+            if (car.getDamagedParts().contains(Employee.positionMapping[employee.getPosition()])) {
+                assigned_employees.add(employee);
+                employee.setBusy();
+            }
+        }
+        this.assigned_employees = assigned_employees;
+    }
 
-        this.car = car;
-        this.employees = EmployeeStack.getInstance().getEmployees();
+//    public Repair store(Car car) {
+//
+//        this.car = car;
+//        this.free_employees = EmployeeStack.getInstance().getInstances();
+//
+//        return this;
+////        instances.add(this);
+//    }
 
-        return this;
-//        instances.add(this);
+    public String toString() {
+        return "Car name: " + car.getName() + ". Assigned employees: " + assigned_employees;
     }
 }

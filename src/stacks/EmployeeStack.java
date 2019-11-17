@@ -7,7 +7,7 @@ import java.util.List;
 
 public class EmployeeStack {
 
-    private static EmployeeStack carStackInstance = null;
+    private static EmployeeStack employeeStackInstance = null;
     private List<Employee> instances = null;
 
     private EmployeeStack() {
@@ -15,17 +15,29 @@ public class EmployeeStack {
     }
 
     public static EmployeeStack getInstance() {
-        if (carStackInstance == null) {
-            carStackInstance = new EmployeeStack();
+        if (employeeStackInstance == null) {
+            employeeStackInstance = new EmployeeStack();
         }
-        return carStackInstance;
+        return employeeStackInstance;
     }
 
     public void addEmployee(Employee employee) {
         instances.add(employee);
     }
 
-    public List<Employee>getEmployees() {
+    public List<Employee> getInstances() {
         return this.instances;
+    }
+
+    public List<Employee> getFreeEmployees() {
+        ArrayList<Employee>freeEmployees = new ArrayList<Employee>();
+
+        for (Employee employee : this.instances)
+        {
+            if (!employee.isBusy())
+                freeEmployees.add(employee);
+        }
+
+        return freeEmployees;
     }
 }

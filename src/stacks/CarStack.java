@@ -34,7 +34,7 @@ public class CarStack {
         int i = 0;
         for (Car car : instances) {
             if (car.uuid.equals(uuid)) {
-                System.out.println("Name: " + car.name);
+                System.out.println("Name: " + car.getName());
             }
             i++;
         }
