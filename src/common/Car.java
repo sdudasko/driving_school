@@ -37,6 +37,10 @@ public class Car {
         return this.name;
     }
 
+    public int getPrice() {
+        return this.price;
+    }
+
     public List getDamagedParts() {
         return this.damaged_parts;
     }

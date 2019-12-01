@@ -51,4 +51,9 @@ public class Employee extends Person {
     public boolean isBusy() {
         return busy;
     }
+
+    public String getContactInfo() {
+        String company_prefix = "+18";
+        return company_prefix + this.telephone_number;
+    }
 }

@@ -6,7 +6,7 @@ import common.Employee;
 
 import java.util.*;
 
-public class CarSeeder implements Seedable {
+public class CarSeeder extends Seeder {
 
     @Override
     public void seed() {
