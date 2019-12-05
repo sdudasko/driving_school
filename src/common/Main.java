@@ -1,5 +1,6 @@
 package common;
 
+import seeds.Seedable;
 import stacks.CarStack;
 import seeds.Seeder;
 import stacks.EmployeeStack;
@@ -12,7 +13,8 @@ public class Main {
 
     public static void main(String[] args) {
         // Get some data
-        new Seeder().seed();
+        Seedable seeder = new Seeder();
+        seeder.seed();
 
         List<Car> cars = CarStack.getInstance().getCars();
 
