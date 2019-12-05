@@ -28,16 +28,22 @@ public class Main {
 
         for (Repair repairInstance : RepairStack.getInstance().getInstances())
         {
-            System.out.println(repairInstance.getUuid());
+//            System.out.println(repairInstance.getUuid());
         }
         UUID givenUUID = null;
 
-        while ((givenUUID = UserInput.cta()) != null) {
-            System.out.println(givenUUID);
-        }
+//        while ((givenUUID = UserInput.cta()) != null) {
+//            RepairStack.getInstance().getInformation(givenUUID);
+//        }
 
-//        System.out.println(repair);
-//        System.out.println(repair2);
-//        System.out.println(repair3);
+        for (Employee employee : EmployeeStack.getInstance().getInstances())
+        {
+            System.out.println(employee);
+        }
+        System.out.println("");
+
+        System.out.println(repair);
+        System.out.println(repair2);
+        System.out.println(repair3);
     }
 }

@@ -16,8 +16,7 @@ public class Repair {
     private List<Employee> free_employees; // Composition - If repair is destroyed - then the employees within the repair is destroyed
     private List<Employee> assigned_employees = new ArrayList<Employee>();
     private int price_for_repair;
-    protected UUID uuid;
-//    private UUID uuid;
+    private UUID uuid;
 
     public Repair(Car car, List<Employee> free_employees) {
 
@@ -47,10 +46,15 @@ public class Repair {
     }
 
     public String toString() {
-        return "Car name: " + car.getName() + ". Car price: " + car.getPrice() + ". Assigned employees: " + assigned_employees + ". Repair price: " + this.price_for_repair + ".";
+        return "Name: " + car.getName() + ".\n" +
+                "Price: " + car.getPrice() + ".\n" +
+                "Owner: " + car.getCustomer().getFullName() + ".\n" +
+                "Assigned employees: " + assigned_employees + ".\n" +
+                "Repair price: " + this.price_for_repair + ".\n" +
+                "Broken parts: " + car.getDamagedParts() + ".\n";
     }
 
-    UUID getUuid() {
+    public UUID getUuid() {
         return uuid;
     }
 }

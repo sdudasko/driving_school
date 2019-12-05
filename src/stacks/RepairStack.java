@@ -1,6 +1,5 @@
 package stacks;
 
-import common.Car;
 import common.Repair;
 
 import java.util.ArrayList;
@@ -33,10 +32,9 @@ public class RepairStack {
 
     public void getInformation(UUID uuid) {
         for (Repair repair : instances) {
-            System.out.println(repair);
-//            if (repair.uuid.equals(uuid)) {
-//                System.out.println(repair);
-//            }
+            if (repair.getUuid().equals(uuid)) {
+                System.out.println(repair);
+            }
         }
     }
 }

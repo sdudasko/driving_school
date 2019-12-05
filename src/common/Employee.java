@@ -17,7 +17,7 @@ public class Employee extends Person {
     }
 
     public String toString() {
-        return this.getFullName();
+        return "Name: " + this.getFullName() + ". Specialization: " + positionMapping[this.position];
     }
 
     // Pretazovanie
