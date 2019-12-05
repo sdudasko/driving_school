@@ -1,11 +1,14 @@
 package common;
 
+import stacks.RepairStack;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 public class Repair {
-    RepairPriceService rp;
+    private RepairPriceService rp;
     public List<Repair> instances = new ArrayList<Repair>();
 
     private Car car; // Composition - If repair is destroyed - then the car within the repair is destroyed
@@ -13,15 +16,22 @@ public class Repair {
     private List<Employee> free_employees; // Composition - If repair is destroyed - then the employees within the repair is destroyed
     private List<Employee> assigned_employees = new ArrayList<Employee>();
     private int price_for_repair;
+    protected UUID uuid;
 //    private UUID uuid;
 
     public Repair(Car car, List<Employee> free_employees) {
+
+        UUID uuid;
+        uuid = UUID.randomUUID();
+        this.uuid = uuid;
+
         this.car = car;
         this.free_employees = free_employees;
         rp = new RepairPriceService();
         this.price_for_repair = rp.getPrice();
 
         this.assignEmployees();
+        RepairStack.getInstance().addRepair(this);
     }
 
     private void assignEmployees() {
@@ -38,5 +48,9 @@ public class Repair {
 
     public String toString() {
         return "Car name: " + car.getName() + ". Car price: " + car.getPrice() + ". Assigned employees: " + assigned_employees + ". Repair price: " + this.price_for_repair + ".";
+    }
+
+    UUID getUuid() {
+        return uuid;
     }
 }

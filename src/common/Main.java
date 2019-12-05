@@ -3,8 +3,10 @@ package common;
 import stacks.CarStack;
 import seeds.Seeder;
 import stacks.EmployeeStack;
+import stacks.RepairStack;
 
 import java.util.List;
+import java.util.UUID;
 
 public class Main {
 
@@ -24,8 +26,18 @@ public class Main {
         List<Employee> employees3 = EmployeeStack.getInstance().getFreeEmployees();
         Repair repair3 = new Repair(cars.get(2), employees3);
 
-        System.out.println(repair);
-        System.out.println(repair2);
-        System.out.println(repair3);
+        for (Repair repairInstance : RepairStack.getInstance().getInstances())
+        {
+            System.out.println(repairInstance.getUuid());
+        }
+        UUID givenUUID = null;
+
+        while ((givenUUID = UserInput.cta()) != null) {
+            System.out.println(givenUUID);
+        }
+
+//        System.out.println(repair);
+//        System.out.println(repair2);
+//        System.out.println(repair3);
     }
 }
