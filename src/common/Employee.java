@@ -17,11 +17,10 @@ public class Employee extends Person {
     }
 
     public String toString() {
-//        return "Name: " + this.getFullName() + ". Specialization: " + positionMapping[this.position];
         return this.getFullName();
     }
 
-    // Pretazovanie
+    // Prekonavanie
     public static UUID store(int age, String first_name, String last_name, String telephone_number, int position) {
         Employee employee = new Employee(age, first_name, last_name, telephone_number, position);
 

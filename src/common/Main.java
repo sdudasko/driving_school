@@ -24,15 +24,20 @@ public class Main {
             i++;
         }
 
+        System.out.println("List of employees:\n");
+
+        for (Employee employee : EmployeeStack.getInstance().getInstances()) {
+            System.out.println(employee + ", specialization: " + Employee.positionMapping[employee.getPosition()]);
+        }
+
+        System.out.println("\n-------------------\n");
+        System.out.println("Car IDs:\n");
         for (Repair repairInstance : RepairStack.getInstance().getInstances()) {
             System.out.println(repairInstance.getUuid());
         }
+
         System.out.println("");
         UUID givenUUID = null;
-
-//        for (Employee employee : EmployeeStack.getInstance().getInstances()) {
-//            System.out.println(employee);
-//        }
 
         while ((givenUUID = UserInput.cta()) != null) {
             RepairStack.getInstance().getInformation(givenUUID);

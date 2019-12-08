@@ -7,4 +7,9 @@ public class RepairPriceService {
         Random rand = new Random();
         return rand.nextInt((20000 - 500) + 1) + 500;
     }
+
+    // Pretazovanie
+    public int getPrice(Car car) {
+        return car.getPrice();
+    }
 }

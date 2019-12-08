@@ -4,7 +4,6 @@ import stacks.RepairStack;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.UUID;
 
 public class Repair {
@@ -27,7 +26,9 @@ public class Repair {
         this.car = car;
         this.free_employees = free_employees;
         rp = new RepairPriceService();
-        this.price_for_repair = rp.getPrice();
+        if (rp.getPrice(car) > 0) {
+            this.price_for_repair = rp.getPrice();
+        }
 
         this.assignEmployees();
         RepairStack.getInstance().addRepair(this);
