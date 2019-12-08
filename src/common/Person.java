@@ -1,5 +1,7 @@
 package common;
 
+import stacks.EmployeeStack;
+
 import java.util.UUID;
 
 public class Person {
@@ -21,10 +23,15 @@ public class Person {
 
         UUID uuid;
         uuid = UUID.randomUUID();
-        System.out.println(position[0]);
+
         person.uuid = uuid;
         person.first_name = first_name;
         person.last_name = last_name;
+
+        if (position.length >= 1) {
+            person = new Employee(age, first_name, last_name, telephone_number, position[0]); // Downcasting
+            EmployeeStack.getInstance().addEmployee((Employee) person);
+        }
 
         return uuid;
     }

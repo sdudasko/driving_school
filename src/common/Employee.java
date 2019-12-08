@@ -5,7 +5,7 @@ import stacks.EmployeeStack;
 import java.util.UUID;
 
 public class Employee extends Person {
-    public static final String[] positionMapping = new String[]{"wheels", "karoserie", "vyfuk", "tlmic", "prevodovka"};
+    public static final String[] positionMapping = new String[]{"wheels", "mirrors", "radiators", "lights", "doors"};
 
     private boolean busy = false;
     private int position;
@@ -17,7 +17,8 @@ public class Employee extends Person {
     }
 
     public String toString() {
-        return "Name: " + this.getFullName() + ". Specialization: " + positionMapping[this.position];
+//        return "Name: " + this.getFullName() + ". Specialization: " + positionMapping[this.position];
+        return this.getFullName();
     }
 
     // Pretazovanie

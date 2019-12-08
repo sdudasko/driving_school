@@ -35,23 +35,33 @@ public class Repair {
 
     private void assignEmployees() {
         List<Employee> assigned_employees = new ArrayList<Employee>();
-        // TODO - now cars only have 1 broken part
+
         for (Employee employee : free_employees) {
             if (car.getDamagedParts().contains(Employee.positionMapping[employee.getPosition()])) {
-                assigned_employees.add(employee);
-                employee.setBusy();
+                if (this.price_for_repair < car.getPrice()) {
+                    assigned_employees.add(employee);
+                    employee.setBusy();
+                }
             }
         }
         this.assigned_employees = assigned_employees;
     }
 
     public String toString() {
-        return "Name: " + car.getName() + ".\n" +
-                "Price: " + car.getPrice() + ".\n" +
+        String worthSaving = this.price_for_repair > car.getPrice() ? "It is not worth to repair this car so no employees were assigned to do this task.\n" : "";
+
+        String assigned = "";
+        if (this.price_for_repair < car.getPrice()) {
+            assigned = assigned_employees.size() > 0 ? "Assigned employee: " + assigned_employees.get(0) + ".\n" : "No employees are currently available for this repair.\n";
+        }
+
+        return "\nName: " + car.getName() + ".\n" +
+                "Price: " + car.getPrice() + "$.\n" +
                 "Owner: " + car.getCustomer().getFullName() + ".\n" +
-                "Assigned employees: " + assigned_employees + ".\n" +
-                "Repair price: " + this.price_for_repair + ".\n" +
-                "Broken parts: " + car.getDamagedParts() + ".\n";
+                assigned +
+                "Repair price: " + this.price_for_repair + "€.\n" +
+                worthSaving +
+                "Broken part: " + car.getDamagedParts().get(0) + ".\n";
     }
 
     public UUID getUuid() {

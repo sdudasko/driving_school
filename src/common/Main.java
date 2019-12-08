@@ -17,35 +17,26 @@ public class Main {
         seeder.seed();
 
         List<Car> cars = CarStack.getInstance().getCars();
-
-        // We only call the same instance of employee stack singleton to filter data - TODO refactor - testing purposes
-        List<Employee> employees = EmployeeStack.getInstance().getFreeEmployees();
-        Repair repair = new Repair(cars.get(0), employees);
-
-        List<Employee> employees2 = EmployeeStack.getInstance().getFreeEmployees();
-        Repair repair2 = new Repair(cars.get(1), employees2);
-
-        List<Employee> employees3 = EmployeeStack.getInstance().getFreeEmployees();
-        Repair repair3 = new Repair(cars.get(2), employees3);
-
-        for (Repair repairInstance : RepairStack.getInstance().getInstances())
-        {
-//            System.out.println(repairInstance.getUuid());
+        int i = 0;
+        for (Car carInstance : CarStack.getInstance().getCars()) {
+            List<Employee> employees = EmployeeStack.getInstance().getFreeEmployees();
+            new Repair(cars.get(i), employees);
+            i++;
         }
-        UUID givenUUID = null;
 
-//        while ((givenUUID = UserInput.cta()) != null) {
-//            RepairStack.getInstance().getInformation(givenUUID);
-//        }
-
-        for (Employee employee : EmployeeStack.getInstance().getInstances())
-        {
-            System.out.println(employee);
+        for (Repair repairInstance : RepairStack.getInstance().getInstances()) {
+            System.out.println(repairInstance.getUuid());
         }
         System.out.println("");
+        UUID givenUUID = null;
 
-        System.out.println(repair);
-        System.out.println(repair2);
-        System.out.println(repair3);
+//        for (Employee employee : EmployeeStack.getInstance().getInstances()) {
+//            System.out.println(employee);
+//        }
+
+        while ((givenUUID = UserInput.cta()) != null) {
+            RepairStack.getInstance().getInformation(givenUUID);
+        }
+
     }
 }

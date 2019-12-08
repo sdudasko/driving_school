@@ -3,7 +3,7 @@ package common;
 import java.util.Scanner;
 import java.util.UUID;
 
-public class UserInput {
+public abstract class UserInput {
     public static UUID cta() {
         System.out.println("Insert ID of your repair to get information about its state.");
 
