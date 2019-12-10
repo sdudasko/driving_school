@@ -1,5 +1,7 @@
 package common;
 
+import stacks.EmployeeStack;
+
 import java.util.UUID;
 
 public class Person {
@@ -16,7 +18,7 @@ public class Person {
         this.telephone_number = telephone_number;
     }
 
-    public static UUID store(int age, String first_name, String last_name, String telephone_number) {
+    public static UUID store(int age, String first_name, String last_name, String telephone_number, int... position) {
         Person person = new Person(age, first_name, last_name, telephone_number);
 
         UUID uuid;
@@ -25,6 +27,11 @@ public class Person {
         person.uuid = uuid;
         person.first_name = first_name;
         person.last_name = last_name;
+
+        if (position.length >= 1) {
+            person = new Employee(age, first_name, last_name, telephone_number, position[0]); // Downcasting
+            EmployeeStack.getInstance().addEmployee((Employee) person);
+        }
 
         return uuid;
     }

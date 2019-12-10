@@ -27,7 +27,6 @@ public class CarSeeder extends Seeder {
                 {"19", "Frantisek", "Sklenar", "+114 511 234 128"},
                 {"23", "Blazej", "Petrovic", "+114 111 556 981"},
         };
-        List <Customer> customers_arr = new ArrayList<Customer>();
         List all_damaged_parts_opts = Arrays.asList(Employee.positionMapping);
 
         /*
@@ -37,7 +36,7 @@ public class CarSeeder extends Seeder {
         for (String[] car_params : cars)
         {
             Customer customer = new Customer(Integer.parseInt(customers[i][0]), customers[i][1], customers[i][2], customers[i][0]);
-            // TODO - multiple damaged parts,
+            // TODO - multiple damaged parts maybe
             Random r = new Random();
             List<String> damaged_parts = new ArrayList<String>();
             damaged_parts.add((String) all_damaged_parts_opts.get(r.nextInt(4))); // TODO - fixed arr len

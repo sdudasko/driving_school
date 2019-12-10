@@ -1,10 +1,11 @@
 package seeds;
 
-import common.Employee;
+import common.Person;
 
-abstract public class EmployeeSeeder {
-    public static void seed() {
-        Employee.store(52, "Anton", "Kovac", "+421 919 581 012", 1);
-        Employee.store(86, "Jozef", "Smrek", "+421 111 222 333", 0);
+public class EmployeeSeeder {
+    public void seed() {
+        Person.store(52, "Anton", "Kovac", "+421 919 581 012", 1);
+        Person.store(86, "Jozef", "Smrek", "+421 111 222 333", 2);
+        Person.store(86, "Jan", "Majster", "+420 512 511 510", 3);
     }
 }

@@ -5,7 +5,7 @@ import stacks.EmployeeStack;
 import java.util.UUID;
 
 public class Employee extends Person {
-    public static final String[] positionMapping = new String[]{"wheels", "karoserie", "vyfuk", "tlmic", "prevodovka"};
+    public static final String[] positionMapping = new String[]{"wheels", "mirrors", "radiators", "lights", "doors"};
 
     private boolean busy = false;
     private int position;
@@ -20,7 +20,7 @@ public class Employee extends Person {
         return this.getFullName();
     }
 
-    // Pretazovanie
+    // Prekonavanie
     public static UUID store(int age, String first_name, String last_name, String telephone_number, int position) {
         Employee employee = new Employee(age, first_name, last_name, telephone_number, position);
 
